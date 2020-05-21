@@ -15,6 +15,17 @@ import IbbMobileServices from 'react-native-ibb-mobile-services';
 // TODO: What to do with the module?
 IbbMobileServices;
 ```
+
+Bu özellik değişecektir.
+## Configure
+```
+    useEffect(() => {
+    const package_name = 'com.grnt.ibbstoredemo';
+    IbbMobileServices.configure(package_name);
+  }, []);
+```
+Başlangıç için App.js veya ilk çağrılan dosyanın içinde ilk eylem olarak IbbMobileServices.configure() methodunu çağırarak başlayın. !!!Önemli @package_name@ değeri değişecektir.
+
 Android içinde AndroidManifest.xml içinde gerekli içinler için
 ## Eklemeler
 ```
