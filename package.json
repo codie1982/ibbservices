@@ -2,7 +2,7 @@
   "name": "react-native-ibb-mobile-services",
   "title": "React Native Ibb Mobile Services",
   "version": "1.0.0",
-  "description": "TODO",
+  "description": "IBB Serivsleri ve uygulama versiyon güncellemeleri için gerekli demo paket",
   "main": "index.js",
   "files": [
     "README.md",
@@ -16,15 +16,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/github_account/react-native-ibb-mobile-services.git",
-    "baseUrl": "https://github.com/github_account/react-native-ibb-mobile-services"
+    "url": "git+https://github.com/codie1982/ibbservices.git",
+    "baseUrl": "https://github.com/codie1982/ibbservices"
   },
   "keywords": [
     "react-native"
   ],
   "author": {
-    "name": "Your Name",
-    "email": "yourname@email.com"
+    "name": "Engin EROL",
+    "email": "engin.erol@ibb.gov.tr"
   },
   "license": "MIT",
   "licenseFilename": "LICENSE",

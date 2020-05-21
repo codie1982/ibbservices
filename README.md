@@ -1,5 +1,7 @@
 # react-native-ibb-mobile-services
 
+!!!Uygulamaların IBB Firebase içinde IBB Store Demo Projesinde Kayıtlı uygulama olması gereklidir.
+
 ## Getting started
 
 `$ npm install react-native-ibb-mobile-services --save`
