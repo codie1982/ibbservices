@@ -15,3 +15,13 @@ import IbbMobileServices from 'react-native-ibb-mobile-services';
 // TODO: What to do with the module?
 IbbMobileServices;
 ```
+Android içinde AndroidManifest.xml içinde gerekli içinler için
+## Eklemeler
+```
+   <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
+```
+eklemeleri yapmayı unutmayın!!!
