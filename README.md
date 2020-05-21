@@ -28,7 +28,7 @@ Class Component için ise componentDidMount() içinde çağrılması gerekmekted
 ```
 Başlangıç için App.js veya ilk çağrılan dosyanın içinde ilk eylem olarak IbbMobileServices.configure() methodunu çağırarak başlayın. !!!Önemli @package_name@ değeri değişecektir.
 
-Android içinde AndroidManifest.xml içinde gerekli içinler için
+Android içinde AndroidManifest.xml içinde gerekli izinler için
 ## Eklemeler
 ```
     <uses-permission android:name="android.permission.INTERNET" />
