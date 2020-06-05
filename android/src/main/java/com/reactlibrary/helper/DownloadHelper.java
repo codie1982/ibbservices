@@ -1,15 +1,6 @@
-package com.reactlibrary.helper;
+package com.reactlibrary.Helper;
 
-import android.app.DownloadManager;
 import android.content.Context;
-import android.database.Cursor;
-import android.net.Uri;
-import android.os.Build;
-import android.os.Environment;
-
-import androidx.annotation.RequiresApi;
-
-import java.io.File;
 
 public class DownloadHelper {
 Context context;

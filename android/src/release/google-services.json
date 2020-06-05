@@ -1,0 +1,155 @@
+{
+  "project_info": {
+    "project_number": "144534506647",
+    "firebase_url": "https://ibb-store-demo-6b45b.firebaseio.com",
+    "project_id": "ibb-store-demo-6b45b",
+    "storage_bucket": "ibb-store-demo-6b45b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:144534506647:android:0383e8259c2ed3ef2badd2",
+        "android_client_info": {
+          "package_name": "com.grnt.ibbstoredemo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "144534506647-k2kqoqvbaaipvqo3tqv844ftosci4jlo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBLhSURj2SlpLHo5aJqhBQXmgQVa1OeQX4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "144534506647-k2kqoqvbaaipvqo3tqv844ftosci4jlo.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "144534506647-iuql87sqcdg90otvf511d4sss2bjvjq7.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "tr.gov.ibb.store"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:144534506647:android:16018d9c516624a12badd2",
+        "android_client_info": {
+          "package_name": "com.ibb_services"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "144534506647-k2kqoqvbaaipvqo3tqv844ftosci4jlo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBLhSURj2SlpLHo5aJqhBQXmgQVa1OeQX4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "144534506647-k2kqoqvbaaipvqo3tqv844ftosci4jlo.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "144534506647-iuql87sqcdg90otvf511d4sss2bjvjq7.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "tr.gov.ibb.store"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:144534506647:android:7b985833caef7cf82badd2",
+        "android_client_info": {
+          "package_name": "com.ibbtestaplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "144534506647-k2kqoqvbaaipvqo3tqv844ftosci4jlo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBLhSURj2SlpLHo5aJqhBQXmgQVa1OeQX4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "144534506647-k2kqoqvbaaipvqo3tqv844ftosci4jlo.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "144534506647-iuql87sqcdg90otvf511d4sss2bjvjq7.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "tr.gov.ibb.store"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:144534506647:android:768d22db1ae77cd42badd2",
+        "android_client_info": {
+          "package_name": "com.reactlibrary"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "144534506647-k2kqoqvbaaipvqo3tqv844ftosci4jlo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBLhSURj2SlpLHo5aJqhBQXmgQVa1OeQX4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "144534506647-k2kqoqvbaaipvqo3tqv844ftosci4jlo.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "144534506647-iuql87sqcdg90otvf511d4sss2bjvjq7.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "tr.gov.ibb.store"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,10 +1,10 @@
-package com.reactlibrary.module;
+package com.reactlibrary.Module;
 
-import com.google.firebase.Timestamp;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
+//import com.google.firebase.Timestamp;
+//import com.google.firebase.firestore.QueryDocumentSnapshot;
 
 public class ApplicationInfo {
-    public ApplicationInfo(QueryDocumentSnapshot document) {
+  /*  public ApplicationInfo(QueryDocumentSnapshot document) {
         String documentID = document.getId();
         String application_market = document.getString("application_market");
         String application_name = document.getString("application_name");
@@ -35,7 +35,7 @@ public class ApplicationInfo {
         setPublished_version(published_version);
 
     }
-
+*/
     //Aplikasyona ait bilgileri almamın gerekiyor
     private String documentID;
     private String application_market;
@@ -141,13 +141,13 @@ public class ApplicationInfo {
         this.type = type;
     }
 
-    public Timestamp getUpdate_time() {
-        return update_time;
-    }
+    //public Timestamp getUpdate_time() {
+    //    return update_time;
+    //}
 
-    public void setUpdate_time(Timestamp update_time) {
-        this.update_time = update_time;
-    }
+    //public void setUpdate_time(Timestamp update_time) {
+    //    this.update_time = update_time;
+    //}
 
     public Long getPublished_version() {
         return published_version;
@@ -170,7 +170,7 @@ public class ApplicationInfo {
     private String short_title;
     private String title;
     private String type;
-    private Timestamp update_time;
+   // private Timestamp update_time;
     private Long published_version;
     private Long current_version;
 }

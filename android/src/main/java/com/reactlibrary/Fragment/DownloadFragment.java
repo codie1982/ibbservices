@@ -1,10 +1,11 @@
-package com.reactlibrary.fragment;
+package com.reactlibrary.Fragment;
 
 import android.app.DownloadManager;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Build;
@@ -20,15 +21,15 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.core.content.FileProvider;
 import androidx.fragment.app.Fragment;
-import androidx.navigation.fragment.NavHostFragment;
 
 import com.reactlibrary.R;
-import com.reactlibrary.activity.DownloadActivity;
+import com.reactlibrary.Activity.DownloadActivity;
 
 import java.io.File;
 import java.text.DecimalFormat;
 
-public class FirstFragment extends Fragment {
+import com.reactlibrary.Receiver.PackageRecevier;
+public class DownloadFragment extends Fragment {
     DownloadActivity downloadActivity;
     TextView txtProgress;
 
@@ -37,18 +38,24 @@ public class FirstFragment extends Fragment {
     Long LASTDOWNLOAD;
     String DOWNLOADURL;
 
+    String DEVICEID;
+    String PACKAGE_NAME;
+    Double PUBLISHED_VERSION;
+
     ProgressBar progressBar;
     static Context mcontext ;
 
+    SharedPreferences sharedPreferences;
+
+    BroadcastReceiver packageRecevier;
     @Override
     public View onCreateView(
             LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState
     ) {
-        // Inflate the layout for this fragment
 
 
-        View view = inflater.inflate(R.layout.fragment_first, container, false);
+        View view = inflater.inflate(R.layout.fragment_download, container, false);
 
         downloadActivity = (DownloadActivity) getActivity();
 
@@ -58,20 +65,33 @@ public class FirstFragment extends Fragment {
         FILENAME = mydataBundle.getString("filename");
         DOWNLOADURL = mydataBundle.getString("downloadurl");
 
+        DEVICEID = mydataBundle.getString("deviceid");
+        PACKAGE_NAME = mydataBundle.getString("package_name");
+        PUBLISHED_VERSION = mydataBundle.getDouble("published_version",0);
+
         progressBar = view.findViewById(R.id.pgsApplicationDownloading);
         txtProgress = view.findViewById(R.id.txtProgresstext);
         progressBar.setProgress(0);
         txtProgress.setText("% 0.00");
 
-        mcontext = getContext();
-        mcontext.registerReceiver(onDownloadComplete,new IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE));
+        IntentFilter intentFilter = new IntentFilter();
+        //intentFilter.addAction(Intent.ACTION_PACKAGE_ADDED);
+        //intentFilter.addAction(Intent.ACTION_PACKAGE_REMOVED);
+        //intentFilter.addAction(Intent.ACTION_PACKAGE_REPLACED);
+        intentFilter.addAction(Intent.ACTION_MY_PACKAGE_REPLACED);
+        intentFilter.addDataScheme("package");
 
+        mcontext = getContext();
+       // mcontext.registerReceiver(onAppInstalled,intentFilter);p
+        packageRecevier = new PackageRecevier();
+        mcontext.registerReceiver(packageRecevier,intentFilter);
+        mcontext.registerReceiver(onDownloadComplete,new IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE));
         return view;
     }
-
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         startDownload();
+        //setupApplication(mcontext);
 
        /* view.findViewById(R.id.button_first).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -123,19 +143,20 @@ public class FirstFragment extends Fragment {
                         if (cursor.getInt(cursor.getColumnIndex(DownloadManager.COLUMN_STATUS)) == DownloadManager.STATUS_SUCCESSFUL) {
                             downloading = false;
                         }
-                        final double dl_progress = (double) ((bytes_downloaded * 100l) / bytes_total);
+                        final double dl_progress = (double) ((bytes_downloaded * 100l) / bytes_total) + 0.00001;
 
-                        final FirstFragment firstFragment = new FirstFragment();
                         downloadActivity.runOnUiThread(new Runnable() {
                             DecimalFormat precision = new DecimalFormat("0.00");
                             @Override
                             public void run() {
-                                System.out.println("ilerleme - " + dl_progress);
+                                //System.out.println("ilerleme - " + dl_progress);
                                 txtProgress.setText("% "+precision.format(dl_progress));
                                 progressBar.setProgress((int) dl_progress);
+
                             }
                         });
-                        System.out.println(statusMessage(cursor));
+                        statusMessage(cursor);
+                        //System.out.println(statusMessage(cursor));
                         cursor.close();
                     }
 
@@ -143,6 +164,7 @@ public class FirstFragment extends Fragment {
             }).start();
         }
     }
+
     private String statusMessage(Cursor c) {
         String msg = "???";
 
@@ -162,11 +184,9 @@ public class FirstFragment extends Fragment {
             case DownloadManager.STATUS_RUNNING:
                 msg = "Download in progress!";
                 break;
-
             case DownloadManager.STATUS_SUCCESSFUL:
                 msg = "Download complete!";
                 break;
-
             default:
                 msg = "Download is nowhere in sight";
                 break;
@@ -182,15 +202,21 @@ public class FirstFragment extends Fragment {
             long id=intent.getLongExtra(DownloadManager.EXTRA_DOWNLOAD_ID,-1);
 
             if(LASTDOWNLOAD==id){
-                System.out.println("Download Bitti");
+
                 setupApplication(context,intent);
                 getActivity().finish();
-                Toast.makeText(mcontext, "İndirme Tamamlandı", Toast.LENGTH_SHORT).show();
+                System.out.println("İndirme Tamamlandı");
+                Toast.makeText(context,"INDIRME TAMAMLANDI",Toast.LENGTH_SHORT).show();
+
             }
         }
 
-
-        public void setupApplication(Context context, Intent intent){
+        private void uninstallApplication(String package_name) {
+            Intent intent = new Intent(Intent.ACTION_DELETE);
+            intent.setData(Uri.parse("package:"+package_name));
+            getContext().startActivity(intent);
+        }
+        public void setupApplication(Context context,Intent intent){
 
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
 
@@ -216,4 +242,35 @@ public class FirstFragment extends Fragment {
         }
     };
 
+    public void setupApplication(Context context){
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            Uri contentUri = FileProvider.getUriForFile(context,   "com.ibbtestaplication.provider",
+                    new File(context.getExternalFilesDir(Environment.DIRECTORY_DOCUMENTS).toString(), DIRNAME +"/"+ FILENAME));
+            Intent install = new Intent(Intent.ACTION_INSTALL_PACKAGE);
+            install.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+            install.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            install.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            install.putExtra(Intent.EXTRA_NOT_UNKNOWN_SOURCE, true);
+            install.setDataAndType(contentUri,"application/vnd.android.package-archive");
+            context.startActivity(install);
+        }else{
+            if(Build.VERSION.SDK_INT >=23){
+                Uri uri = Uri.fromFile(new File(context.getExternalFilesDir(Environment.DIRECTORY_DOCUMENTS).toString(), DIRNAME+"/"+FILENAME));
+                Intent install = new Intent(Intent.ACTION_VIEW);
+                install.setDataAndType(uri, "application/vnd.android.package-archive");
+                context.startActivity(install);
+            }
+        }
+    }
+
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        try {
+            getContext().unregisterReceiver(packageRecevier);
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+    }
 }

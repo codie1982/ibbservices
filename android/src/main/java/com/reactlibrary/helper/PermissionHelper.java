@@ -1,4 +1,4 @@
-package com.reactlibrary.helper;
+package com.reactlibrary.Helper;
 
 import android.content.Context;
 import android.content.pm.PackageManager;

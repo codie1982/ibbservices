@@ -1,4 +1,4 @@
-package com.reactlibrary.constain;
+package com.reactlibrary.Constain;
 
 public class Constains {
     public final static String REGISTERID = "registerID";
@@ -6,6 +6,9 @@ public class Constains {
     public final static String PACKAGE_NAME = "package_name";
     public final static String CURRENT_VERSION = "current_version";
     public final static String REGEDIT = "regedit";
+
+    public final static String SETUP="setup";
+
 
     public final static String AppID = "id";
     public final static String AppNAME = "applicationname";
@@ -30,6 +33,7 @@ public class Constains {
 
     public final static String TYPEGLOBAL ="global";
     public final static String TYPECOPORATE ="coporate";
+
 
 
 

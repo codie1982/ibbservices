@@ -1,12 +1,12 @@
 package com.reactlibrary;
 
+
 import androidx.core.app.ActivityCompat;
 import androidx.core.app.ActivityCompat.OnRequestPermissionsResultCallback;
 
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-
 import com.facebook.react.ReactPackage;
 import com.facebook.react.bridge.NativeModule;
 import com.facebook.react.bridge.ReactApplicationContext;

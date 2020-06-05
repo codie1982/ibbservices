@@ -1,26 +1,26 @@
-package com.reactlibrary.services;
+package com.reactlibrary.Services;
 
 import androidx.annotation.NonNull;
 
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.Timestamp;
-import com.google.firebase.firestore.CollectionReference;
-import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.Query;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.google.firebase.firestore.QuerySnapshot;
-import com.reactlibrary.module.ApplicationInfo;
+//import com.google.android.gms.tasks.OnFailureListener;
+//import com.google.android.gms.tasks.OnSuccessListener;
+//import com.google.android.gms.tasks.Task;
+//import com.google.firebase.Timestamp;
+//import com.google.firebase.firestore.CollectionReference;
+//import com.google.firebase.firestore.FirebaseFirestore;
+//import com.google.firebase.firestore.Query;
+//import com.google.firebase.firestore.QueryDocumentSnapshot;
+//import com.google.firebase.firestore.QuerySnapshot;
+import com.reactlibrary.Module.ApplicationInfo;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import static com.reactlibrary.constain.Constains.*;
+import static com.reactlibrary.Constain.Constains.*;
 
 public class ApplicationServices {
     //Application services ile DBye kayıt işlemlerini ve DB sorgulama işlemlerini yapmamız gerekiyor.
-    private FirebaseFirestore db;
+  //  private FirebaseFirestore db;
     private String deviceID;
     private String packageName;
 
@@ -34,7 +34,7 @@ public class ApplicationServices {
 
     private Long current_version;
     public ApplicationInfo applicationInfo;
-
+/*
     public ApplicationServices(String packageName,String deviceID) {
         db = FirebaseFirestore.getInstance();
         this.packageName = packageName; // paket ismi ile o uygulamanın bilgilerini almamız gerekiyor.
@@ -126,7 +126,7 @@ public class ApplicationServices {
                         String type = document.getString("type");
                         Timestamp update_time = document.getTimestamp("update_time");
                         Long published_version = document.getLong("version");
-/*
+
                         ApplicationInfo appInfo = new ApplicationInfo();
                         appInfo.setApplication_market(application_market);
                         appInfo.setApplication_name(application_name);
@@ -142,7 +142,7 @@ public class ApplicationServices {
                         appInfo.setUpdate_time(update_time);
                         appInfo.setPublished_version(published_version);
                         setApplicationInfo(appInfo);
-                        */
+
                         break;
 
                     }
@@ -154,6 +154,6 @@ public class ApplicationServices {
             }
         });
     }
-
+*/
 
 }

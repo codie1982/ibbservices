@@ -1,10 +1,10 @@
-package com.reactlibrary.module;
+package com.reactlibrary.Module;
 
 import android.content.Context;
 
 import com.facebook.react.bridge.Arguments;
 import com.facebook.react.bridge.WritableMap;
-import com.reactlibrary.helper.VersionHelper;
+import com.reactlibrary.Helper.VersionHelper;
 
 import java.util.UUID;
 
@@ -73,7 +73,7 @@ public class IBBInfo {
 
         map.putString("type",applicationInfo.getType());
 
-        map.putString("update_time",applicationInfo.getUpdate_time().toString());
+        //map.putString("update_time",applicationInfo.getUpdate_time().toString());
 
         map.putInt("published_version",applicationInfo.getPublished_version().intValue());
 

@@ -4,12 +4,12 @@ const { IbbMobileServices } = NativeModules;
 
 class IBBServices {
 
-  async  configure(package_name){
+  async  configure(application_id){
         if(Platform.OS =="android"){
             //yok burada geri dönüş almamız gerekiyor buradaki geri dönüşe göre bir alert gösterecez ve bu alert içinden yükleme yapılmasını istememiz gerekiyor
           
             //Uygulama ilk başlangıç değerlerini alıyoruz. burada uygulamamıza ait device id,ve applicasyon özellikleri di db den okuyoruz
-            const data = await IbbMobileServices.init(package_name)
+            const data = await IbbMobileServices.init(application_id)
 
             //Uygulamanın mevcut verilerini alıyoruz. burada versiyon kontrolu için de parametre geri döndürüyoruz.
             
@@ -39,7 +39,11 @@ class IBBServices {
                         {
                           const permission = await IbbMobileServices.check_permission();
                           if(permission){
-                            const update = await IbbMobileServices.update_application(data.download_link,data.application_name);
+                            const update = await IbbMobileServices.update_application(data.download_link,
+                                                                                        data.application_name,
+                                                                                        data.deviceID,
+                                                                                        data.published_version,
+                                                                                        data.package_name);
                           }else {
                             Alert.alert("Uygulama İzni Hatası",
                             "Bu uygulamada gerekli olan güncellemeler için herhangi bir izin verilmemiş.Uygulamaya gerekli izinlerin verilmesi için ayarlar bölümünden uygulamaya gerekli izinleri manuel olarak verebilirsiniz.",
@@ -80,7 +84,6 @@ class IBBServices {
     }
 
    async check_per(){
-     
       return permission;
     }
 }

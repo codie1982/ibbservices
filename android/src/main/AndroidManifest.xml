@@ -2,11 +2,23 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.reactlibrary">
 
-    <application>
+    <application
+        android:allowBackup="false"
+        android:usesCleartextTraffic="true">
+        <activity android:name=".Activity.NoApplicationdataActivity"></activity>
+        <activity android:name=".Activity.ApplicationDeleteActivity" />
+        <activity android:name=".Activity.NoPackageActivity" />
+        <activity android:name=".Activity.ApplicationErrorActivity" />
+        <activity android:name=".Activity.NoVersionActivity" />
+        <activity android:name=".Activity.VersionDeleteActivity" />
+        <activity android:name=".Activity.NoApplicationActivity" />
+        <activity android:name=".Activity.PauseActivity" />
+        <activity android:name=".Activity.NoEditActivity" />
         <activity
-            android:name="com.reactlibrary.activity.DownloadActivity"
+            android:name=".Activity.DownloadActivity"
             android:label="@string/title_activity_modal"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="com.ibbtestaplication.provider"
@@ -16,6 +28,14 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_provider_paths" />
         </provider>
+
+        <receiver android:name=".Receiver.PackageRecevier">
+            <intent-filter android:priority="999">
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
+
+                <data android:scheme="package" />
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

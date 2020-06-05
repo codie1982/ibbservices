@@ -41,7 +41,7 @@ buildscript {
 
 apply plugin: 'com.android.library'
 apply plugin: 'maven'
-apply plugin: 'com.google.gms.google-services'
+//apply plugin: 'com.google.gms.google-services'
 android {
     compileSdkVersion safeExtGet('compileSdkVersion', DEFAULT_COMPILE_SDK_VERSION)
     buildToolsVersion safeExtGet('buildToolsVersion', DEFAULT_BUILD_TOOLS_VERSION)
@@ -76,9 +76,15 @@ dependencies {
     //noinspection GradleDynamicVersion
     implementation 'com.facebook.react:react-native:+'  // From node_modules
 
-    implementation "com.google.firebase:firebase-auth:19.3.1"
-    implementation "com.google.firebase:firebase-firestore:21.4.3"
-    implementation "com.google.firebase:firebase-storage:19.1.1"
+    //implementation "com.google.firebase:firebase-auth:19.3.1"
+    //implementation "com.google.firebase:firebase-firestore:21.4.3"
+    //implementation "com.google.firebase:firebase-storage:19.1.1"
+
+    implementation 'com.squareup.retrofit2:retrofit:+'
+    implementation 'com.squareup.okhttp3:okhttp:4.7.2'
+    implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
+    implementation 'com.squareup.okio:okio:2.6.0'
+
     implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'com.google.android.material:material:1.1.0'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
