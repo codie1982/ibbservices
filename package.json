@@ -1,7 +1,7 @@
 {
   "name": "react-native-ibb-mobile-services",
   "title": "React Native Ibb Mobile Services",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "IBB Serivsleri ve uygulama versiyon güncellemeleri için gerekli demo paket",
   "main": "index.js",
   "files": [

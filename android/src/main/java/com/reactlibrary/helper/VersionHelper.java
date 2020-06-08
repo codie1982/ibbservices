@@ -58,10 +58,10 @@ public class VersionHelper {
         try{
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
                 current_version = applicationHelper.getPackageInfo().getLongVersionCode();
-                System.out.println("Uygulama Versiyonu :" + applicationHelper.getPackageInfo().getLongVersionCode());
+                //System.out.println("Uygulama Versiyonu :" + applicationHelper.getPackageInfo().getLongVersionCode());
             }else{
                 current_version =new Long( applicationHelper.getPackageInfo().versionCode);
-                System.out.println("Uygulama Versiyonu :" + applicationHelper.getPackageInfo().versionCode);
+                //System.out.println("Uygulama Versiyonu :" + applicationHelper.getPackageInfo().versionCode);
             }
 
         }catch (Exception e){
@@ -69,6 +69,17 @@ public class VersionHelper {
             current_version = -1L;
         }
         return current_version;
+    }
+
+    public String getCurrentVersionString(ApplicationHelper applicationHelper){
+        String current_version_string="";
+        try{
+            current_version_string = applicationHelper.getPackageInfo().versionName;
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+            current_version_string = "";
+        }
+        return current_version_string;
     }
 
 }

@@ -1,16 +1,34 @@
 package com.reactlibrary.Upgrade;
 
+import android.app.Activity;
 import android.content.Context;
 
 import com.reactlibrary.Models.Version;
-import com.reactlibrary.Constain.VersionConstains;
-
-import static com.reactlibrary.Constain.VersionConstains.*;
 
 public class Upgrade {
 
-    protected Version nVersion;
-    protected Context context;
+    private Version version;
+    private Context context;
+    private Activity activity;
+
+    public Version getVersion() {
+        return version;
+    }
+
+    public Context getContext() {
+        return context;
+    }
+
+    public Activity getActivity() {
+        return activity;
+    }
+
+    public Long getCurrentVersion() {
+        return currentVersion;
+    }
+
+    private Long currentVersion;
+    private String currentVersionString;
 
     //constractor
     public Upgrade() {
@@ -21,16 +39,26 @@ public class Upgrade {
     }
     //constractor
     public Upgrade(Context context ,Version version) {
-        this.nVersion = version;
+        this.version = version;
         this.context = context;
     }
 
-    protected Version getVersionData(){
-        return this.nVersion;
+    protected void setActivity(Activity activity){
+        this.activity = activity;
+    }
+    protected void setCurrentVersion(Long currentVersion){
+        this.currentVersion = currentVersion;
+    }
+    protected void setCurrentVersionString(String currentVersionString){
+        this.currentVersionString = currentVersionString;
+    }
+
+    public String getCurrentVersionString(){
+        return currentVersionString;
     }
 
     public Long getVersionType() {
-        return nVersion.versionData.versionDetail.versionType;
+        return getVersion().versionData.versionDetail.versionType;
     }
 
 

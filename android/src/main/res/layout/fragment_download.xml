@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,29 +7,256 @@
     android:orientation="vertical"
     tools:context=".Fragment.DownloadFragment">
 
-    <ProgressBar
-        android:id="@+id/pgsApplicationDownloading"
-        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:indeterminate="false"
-        android:progress="100"
-        android:progressDrawable="@drawable/progress_circle" />
 
-    <TextView
-        android:id="@+id/txtProgresstext"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="102dp"
-        android:gravity="center"
-        android:padding="30dp"
-        android:text="% 100.00"
-        android:textSize="30sp"
-        android:textStyle="bold"></TextView>
-</RelativeLayout>
+        android:layout_gravity="center"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#fff"
+            android:gravity="top"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/imgApplicationLogo"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:layout_margin="10dp"
+                    android:src="@mipmap/muhtarlik_logo" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/txtApplicationTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center"
+                        android:text="Muhtarlık"
+                        android:textColor="#111"
+                        android:textSize="30sp"
+                        android:textStyle="bold"></TextView>
+
+                    <TextView
+                        android:id="@+id/txtApplicationShortTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:gravity="left"
+                        android:text="Muhtarlık Alt Uygulaması"
+                        android:textColor="#81111111"
+                        android:textSize="20sp"
+                        android:textStyle="bold"></TextView>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="left"
+                            android:text="Yayınlayan : "
+                            android:textColor="#81111111"
+                            android:textSize="12sp"
+                            android:textStyle="bold"></TextView>
+
+                        <TextView
+                            android:id="@+id/txtPublisher"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="left"
+                            android:text="IBB BİM Mobil Yazılım Birimi"
+                            android:textColor="#81111111"
+                            android:textSize="12sp"
+                            android:textStyle="bold"></TextView>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="left"
+                            android:text="Yayınlanan Versiyon : "
+                            android:textColor="#81111111"
+                            android:textSize="12sp"
+                            android:textStyle="bold"></TextView>
+
+                        <TextView
+                            android:id="@+id/txtCurrentVersionString"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="left"
+                            android:paddingHorizontal="5dp"
+                            android:text="1.0.27"
+                            android:textColor="#81111111"
+                            android:textSize="12sp"
+                            android:textStyle="bold"></TextView>
+
+                        <TextView
+                            android:id="@+id/txtOneway"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="left"
+                            android:paddingHorizontal="10dp"
+                            android:text="-->"
+                            android:textColor="#81111111"
+                            android:textSize="12sp"
+                            android:textStyle="bold"></TextView>
+
+                        <TextView
+                            android:id="@+id/txtVersionString"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="left"
+                            android:paddingHorizontal="5dp"
+                            android:text="1.0.27"
+                            android:textColor="#81111111"
+                            android:textSize="12sp"
+                            android:textStyle="bold"></TextView>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="left"
+                            android:text="Uygulama Kategorisi : "
+                            android:textColor="#81111111"
+                            android:textSize="12sp"
+                            android:textStyle="bold"></TextView>
+
+                        <TextView
+                            android:id="@+id/txtApplicationCategory"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="left"
+                            android:text="Kurumsal"
+                            android:textColor="#81111111"
+                            android:textSize="12sp"
+                            android:textStyle="bold"></TextView>
+                    </LinearLayout>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ProgressBar
+                        android:id="@+id/pgsApplicationDownloading"
+                        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:indeterminate="false"
+                        android:progress="4"
+                        android:progressTint="#ee3e" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/txtVersionTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Kritik Güncelleme - Otomatik"
+                    android:textAlignment="center"
+                    android:textColor="#EEF30202"
+                    android:textSize="22sp"
+                    android:textStyle="bold|italic">
+
+                </TextView>
+
+                <TextView
+                    android:id="@+id/txtVersionTitleDescription"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="start"
+                    android:text="Kritik Güncelleme Uyuglama için önemli alanları kapsamaktadır"
+                    android:textAlignment="textStart"
+                    android:textColor="#EE686868"
+                    android:textSize="12sp"
+                    android:textStyle="bold|italic"></TextView>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="Notları : "
+                        android:textStyle="bold"></TextView>
+
+                    <TextView
+                        android:id="@+id/txtVersionNotes"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce efficitur neque in odio mollis, sed rutrum massa tempor. Aliquam enim eros, dignissim vel ligula ut, dictum vehicula urna. Vestibulum a urna et turpis placerat hendrerit et ac est. Praesent ut mauris a metus ultricies laoreet ut non lacus."></TextView>
+                </LinearLayout>
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <FrameLayout
+                    android:id="@+id/gameFrameLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"></FrameLayout>
+
+
+            </RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:weightSum="1">
+
+            <Button
+                android:id="@+id/btnVersionStart"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="#EEF30202"
+                android:text="Güncellemeyi Başlat"
+                android:textColor="#eee"></Button>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

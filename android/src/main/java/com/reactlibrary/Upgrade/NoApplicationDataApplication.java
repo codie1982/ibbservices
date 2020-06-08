@@ -1,5 +1,6 @@
 package com.reactlibrary.Upgrade;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 
@@ -17,6 +18,9 @@ public class NoApplicationDataApplication extends Upgrade implements IUpgrade {
 
     @Override
     public void startProcess() {
+        Version nVersion  = getVersion();
+        Context context = getContext();
+        Activity activity = getActivity();
 /*
 
         DOWNLOADURL = download_url;

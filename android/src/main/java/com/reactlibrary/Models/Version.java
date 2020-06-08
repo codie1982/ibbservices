@@ -8,6 +8,10 @@ public class Version implements Serializable
 {
     //remove_version_number
 
+    @SerializedName("application_data")
+    @Expose
+    public ApplicationData applicationData;
+
     @SerializedName("remove_version_number")
     @Expose
     public Long remove_version_number;
@@ -53,6 +57,11 @@ public class Version implements Serializable
     public Version withVersionInfo(VersionData versionData) {
         System.out.println(versionData);
         this.versionData = versionData;
+        return this;
+    }
+
+    public Version withApplicationData(ApplicationData applicationData) {
+        this.applicationData = applicationData;
         return this;
     }
 

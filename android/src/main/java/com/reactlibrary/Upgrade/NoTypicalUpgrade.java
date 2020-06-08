@@ -1,5 +1,6 @@
 package com.reactlibrary.Upgrade;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 
@@ -19,23 +20,12 @@ public class NoTypicalUpgrade extends Upgrade implements IUpgrade {
 
     @Override
     public void startProcess() {
-
-/*
-
-        DOWNLOADURL = download_url;
-        DIRNAME = application_name;
-        FILENAME = application_name + ".apk";
-*/
-
+        Version nVersion  = getVersion();
+        Context context = getContext();
+        Activity activity = getActivity();
         Intent modalIntent = new Intent(context, DownloadActivity.class);
         modalIntent.setFlags(modalIntent.FLAG_ACTIVITY_NEW_TASK);
         modalIntent.putExtra("upgrade_type",-1L );
-
-/*         modalIntent.putExtra("dirname", DIRNAME);
-        modalIntent.putExtra("filename", FILENAME);
-        modalIntent.putExtra("deviceid", deviceID);
-        modalIntent.putExtra("published_version", published_version);
-        modalIntent.putExtra("package_name", package_name);*/
         context.startActivity(modalIntent);
 
     }
